@@ -588,6 +588,9 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       } catch {
         // Ignore storage errors
       }
+      if (mediaMap[id]?.dataUrl) {
+        return mediaMap[id].dataUrl;
+      }
       return `/media/${id}.webp`;
     }
     if (src.startsWith('/src/assets/images/')) {

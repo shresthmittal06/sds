@@ -1287,7 +1287,7 @@ export const KITCHENWARE_CATALOG: Product[] = [
     productType: 'kitchenware',
     filterTags: ['special', 'trays'],
     modelNumber: 'Customized',
-    mainImage: '/images/products/kitchenware.jpg',
+    mainImage: 'media://img-1795156200347-goldentray',
     description:
       'Specialty Golden Tray manufactured in 9.4" × 13.4" × 1" customised presentation dimensions.',
     availableSizes: ['Customized'],

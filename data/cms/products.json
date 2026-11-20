@@ -4901,5 +4901,56 @@
     "updatedAt": {
       "_methodName": "serverTimestamp"
     }
+  },
+  "kw-golden-tray": {
+    "id": "kw-golden-tray",
+    "name": "Golden Tray",
+    "category": "kitchenware-home-utility",
+    "subCategory": "Special Products",
+    "productType": "kitchenware",
+    "filterTags": [
+      "special",
+      "trays"
+    ],
+    "modelNumber": "Customized",
+    "description": "Specialty Golden Tray manufactured in 9.4\" × 13.4\" × 1\" customised presentation dimensions.",
+    "availableSizes": [
+      "Customized"
+    ],
+    "dimensions": "9.4\" × 13.4\" × 1\"",
+    "isAvailable": true,
+    "variants": [
+      {
+        "label": "Customized",
+        "modelCode": "Customized",
+        "dimensionsIn": "9.4\" × 13.4\" × 1\""
+      }
+    ],
+    "specifications": [
+      {
+        "label": "Variant",
+        "value": "Customized"
+      },
+      {
+        "label": "Dimensions",
+        "value": "9.4\" × 13.4\" × 1\""
+      }
+    ],
+    "relatedProductIds": [
+      "kw-golden-glass-stand",
+      "kw-barfi-tray",
+      "kw-pooja-peti"
+    ],
+    "featured": false,
+    "sortOrder": 122,
+    "mainImage": "media://img-1795156200347-goldentray",
+    "mainImagePosition": "50% 50%",
+    "mainImageFit": "contain",
+    "createdAt": {
+      "_methodName": "serverTimestamp"
+    },
+    "updatedAt": {
+      "_methodName": "serverTimestamp"
+    }
   }
 }
