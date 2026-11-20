@@ -649,7 +649,7 @@ export const GN_PANS_CATALOG: Product[] = [
         dimensionsMm: '210 × 200 × 150',
         dimensionsIn: '8.00 × 8.00 × 6.00',
         capacity: '2.4 L',
-        netPrice: 948,
+        netPrice: 1250,
       },
     ],
     specifications: [
@@ -681,7 +681,7 @@ export const GN_PANS_CATALOG: Product[] = [
         dimensionsMm: '210 × 200 × 200',
         dimensionsIn: '8.00 × 8.00 × 8.00',
         capacity: '3.2 L',
-        netPrice: 1235,
+        netPrice: 1325,
       },
     ],
     specifications: [

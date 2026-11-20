@@ -397,30 +397,12 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       })
       .catch(() => {});
 
-    // 5. Sync existing localStorage items to server so all external browsers receive them immediately
+    // 5. Cleanup obsolete localStorage caches to ensure fresh catalog prices and media load
     try {
-      const localMedia = JSON.parse(localStorage.getItem('sds_local_media_assets_v1') || '{}');
-      for (const asset of Object.values(localMedia) as MediaAsset[]) {
-        if (asset && asset.id) {
-          fetch('/api/media', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ asset }),
-          }).catch(() => {});
-        }
-      }
-      const localProducts = JSON.parse(localStorage.getItem('sds_local_products_v1') || '{}');
-      for (const prod of Object.values(localProducts) as Product[]) {
-        if (prod && prod.id) {
-          fetch('/api/products', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ product: prod }),
-          }).catch(() => {});
-        }
-      }
+      localStorage.removeItem('sds_local_products_v1');
+      localStorage.removeItem('sds_local_media_assets_v1');
     } catch {
-      // Ignore sync errors
+      // Ignore
     }
   }, []);
 
@@ -787,10 +769,12 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       mergedMap.set(item.id, item);
     }
     try {
-      const localMap = JSON.parse(localStorage.getItem('sds_local_products_v1') || '{}');
-      for (const item of Object.values(localMap)) {
-        if (item && typeof item === 'object' && (item as Product).id) {
-          mergedMap.set((item as Product).id, item as Product);
+      if (editMode) {
+        const localMap = JSON.parse(localStorage.getItem('sds_local_products_v1') || '{}');
+        for (const item of Object.values(localMap)) {
+          if (item && typeof item === 'object' && (item as Product).id) {
+            mergedMap.set((item as Product).id, item as Product);
+          }
         }
       }
     } catch {

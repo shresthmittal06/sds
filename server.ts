@@ -98,6 +98,11 @@ async function startServer() {
       return;
     }
     const map = readJson<Record<string, any>>(MEDIA_FILE, {});
+    // Never replace an existing static /media/ path with an obsolete base64 dataUrl
+    if (map[asset.id]?.dataUrl && !map[asset.id].dataUrl.startsWith('data:') && asset.dataUrl?.startsWith('data:')) {
+      res.json({ ok: true, asset: map[asset.id] });
+      return;
+    }
     map[asset.id] = asset;
     writeJson(MEDIA_FILE, map);
     res.json({ ok: true, asset });
