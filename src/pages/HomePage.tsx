@@ -424,7 +424,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 <EditableImage
                   slotId="home.about.image"
                   defaultSrc="/images/about_manufacturing_craft_1794728250935.jpg"
-                  defaultAlt="Stainless steel manufacturing workshop and raw steel sheet stock"
+                  defaultAlt="SHREE DURGA STEELS authentic manufacturing workshop and stainless steel production warehouse"
                   usage="about"
                   label="Homepage About Section Photograph"
                   previewAspectClass="aspect-[4/3]"
