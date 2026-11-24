@@ -76,41 +76,33 @@ export function ProductCard({ product, onNavigate, onQuickAddQuote }: ProductCar
             </p>
           )}
 
-          {product.availableSizes && product.availableSizes.length > 0 && (
+          {product.availableSizes && product.availableSizes.length > 0 ? (
             <p className="mt-2.5 text-xs text-[#292321]/75 tabular-nums">
               <span className="text-[#292321]/50">Available sizes: </span>
               {product.availableSizes.join(' · ')}
             </p>
-          )}
+          ) : product.dimensions ? (
+            <p className="mt-2.5 text-xs text-[#292321]/75 tabular-nums">
+              <span className="text-[#292321]/50">Dimensions: </span>
+              {product.dimensions}
+            </p>
+          ) : null}
 
-          {!product.isPlaceholder &&
-            product.specifications &&
-            product.specifications.length > 0 && (
-              <dl className="mt-3 pt-3 border-t border-[#F5F5F5] space-y-1 text-xs">
-                {product.specifications.slice(0, 3).map((spec, idx) => (
-                  <div key={idx} className="flex items-baseline justify-between gap-3">
-                    <dt className="text-[#292321]/60 shrink-0">{spec.label}</dt>
-                    <dd className="text-black font-medium text-right tabular-nums truncate">
-                      {spec.value}
-                    </dd>
-                  </div>
-                ))}
-                {minPrice !== null && (
-                  <div className="flex items-baseline justify-between gap-3 pt-1">
-                    <dt className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5B1018] shrink-0">
-                      NET PRICE / PC
-                    </dt>
-                    <dd className="text-black font-semibold text-right tabular-nums">
-                      {settings.showPrices !== false
-                        ? variants.length > 1
-                          ? `From ${formatInrPrice(minPrice)}`
-                          : formatInrPrice(minPrice)
-                        : 'On Enquiry'}
-                    </dd>
-                  </div>
-                )}
-              </dl>
-            )}
+          {/* Main Detail: Net Price / Pc */}
+          <div className="mt-3 pt-3 border-t border-[#F5F5F5] flex items-baseline justify-between gap-3">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#5B1018] shrink-0">
+              NET PRICE / PC
+            </span>
+            <span className="text-black font-semibold text-right tabular-nums">
+              {settings.showPrices !== false
+                ? minPrice !== null
+                  ? variants.length > 1
+                    ? `From ${formatInrPrice(minPrice)}`
+                    : formatInrPrice(minPrice)
+                  : 'On Enquiry'
+                : 'On Enquiry'}
+            </span>
+          </div>
         </div>
       </div>
 
